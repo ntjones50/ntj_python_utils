@@ -82,6 +82,17 @@ def test_set_df_series_dtypes():
     #---------------------------------
 
     # Test full output dataframe match
-    pdt.assert_frame_equal(set_df_series_dtypes(test_df, test_d), sol_df,
+    comp_df = set_df_series_dtypes(test_df, test_d)
+    pdt.assert_frame_equal(comp_df, sol_df,
                            check_index_type = True, check_column_type = True,
                            check_exact = True)
+    
+    # Tests for each column data type
+    comp_df_2 = set_df_series_dtypes(test_df, test_d)
+    assert comp_df_2['object_1'].dtype == 'object'
+    assert comp_df_2['string 1'].dtype == 'string'
+    assert comp_df_2['boolean_1'].dtype == 'boolean'
+    assert comp_df_2['float64_1'].dtype == 'float64'
+    assert comp_df_2['int64_1'].dtype == 'int64'
+    assert comp_df_2['datetime64_ns 1'].dtype == 'datetime64[ns]'
+    assert comp_df_2['int32'].dtype == 'object'
