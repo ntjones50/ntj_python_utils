@@ -1,0 +1,15 @@
+#***************************
+# Written by Nathan Jones
+#***************************
+
+# Ignore .pyc files
+*.pyc
+
+# Ignore .html files
+*.html
+
+# Ignore DS Store files
+*.DS_Store
+
+# Ignore __init__.py files
+__init__.py
