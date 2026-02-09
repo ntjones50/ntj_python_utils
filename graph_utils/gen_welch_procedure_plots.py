@@ -182,12 +182,12 @@ def gen_welch_procedure_plots(in_df: df, rep_col: str, time_step_col: str, metri
         raise Exception('first_timestep_units needs to be a float')
     
     # If provided, metric_name needs to be a string
-    if metric_name:
+    if not metric_name == None:
         if not isinstance(metric_name,str):
             raise Exception('metric_name needs to be a string if provided')
     
     # if w is provided it needs to be an int
-    if w:
+    if not w == None:
         if not isinstance(w,int):
             raise Exception('w needs to be an int if provided')
     
@@ -247,7 +247,7 @@ def gen_welch_procedure_plots(in_df: df, rep_col: str, time_step_col: str, metri
     out_lst.append(copy.deepcopy(timestep_means))
 
     # If needed, compute w
-    if not w:
+    if w == None:
         w = math.floor(m/4)
     
     # Save w
@@ -295,7 +295,7 @@ def gen_welch_procedure_plots(in_df: df, rep_col: str, time_step_col: str, metri
     fig_0.add_trace(go.Scatter(x = copy.deepcopy(plot_x), y = copy.deepcopy(timestep_means), mode = 'lines+markers'))
 
     # Get name for metric 
-    if metric_name:
+    if not metric_name == None:
         metric_n = metric_name
     else:
         metric_n = "Metric"

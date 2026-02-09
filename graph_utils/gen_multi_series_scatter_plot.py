@@ -104,7 +104,6 @@ def gen_multi_series_scatter_plot(in_df: df, series_col: str, x_data_col: str, y
     if not series_col in in_df.columns:
         raise Exception("series_col needs to be a column in in_df")
     
-
     # Ensure series_col in in_df is of type string
     if not in_df[series_col].dtype == 'string':
         raise Exception('series_col in in_df needs to be of type string')
